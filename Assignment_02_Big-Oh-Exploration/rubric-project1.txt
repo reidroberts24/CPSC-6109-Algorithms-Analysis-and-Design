@@ -1,0 +1,34 @@
+Rubric:
+Points Item
+---------- --------------------------------------------------------------
+_____ / 30 Java Program
+▪ Documentation: (written for another software developer)
+▪ All source code files include Javadoc header block with
+description, @author, @version, etc.
+▪ Javadoc (with block tags, for example @param, @return)
+before each method
+▪ All non-trivial variables are commented
+▪ Comments included before major portions of code
+▪ Four sorting algorithms implemented
+▪ Timing code
+_____ / 18 Experimental Design
+▪ Multiple replicates
+▪ Sufficient data to establish trends (including multiple values of
+n)
+▪ Each sorting algorithm sorted the same values original (and not a
+sorted version)
+_____ / 50 Report
+▪ Appropriate sections (e.g., Introduction, Methods, Results,
+Conclusion)
+▪ Data reported (graph / table)
+▪ Analyze and discuss the similarities/differences between
+empirical and theoretical results (this could include a graph of
+expected execution times for each growth-rate function)
+▪ Appropriate length (about 1-2 pages plus graph(s)/table(s))
+_____ / 2 Completed rubric (estimates for each line including hours spent)
+_____ /100 Total
+_____ Approximate number of hours spent
+
+I, (REPLACE WITH YOUR FULL NAME), affirm that the code that I submitted is my
+own work and that I did not receive help that was not authorized by the
+instructor.
