@@ -24,7 +24,7 @@ public class QuickSort {
         //swap the pivot element with the i+1 element so we have a low side and a high side
         int tmp2 = arr[i + 1]; //store i+1 element as tmp2
         arr[i + 1] = x; //swap i+1 element with pivot
-        x = tmp2; //set final array element as tmp2 
+        arr[r] = tmp2; //set final array element as tmp2 
         return i + 1; //return i+1 because that is where the final element on the low side is 
     }
 }
