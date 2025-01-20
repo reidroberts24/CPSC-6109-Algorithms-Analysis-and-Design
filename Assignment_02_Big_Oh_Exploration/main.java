@@ -4,7 +4,7 @@ import java.util.Random;
 public class main {
     public static void main(String[] args) {
 
-        long startTime; 
+        long startTime;  
         long endTime;
         long duration;
 
