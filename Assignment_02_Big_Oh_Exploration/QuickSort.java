@@ -7,11 +7,11 @@ public class QuickSort {
         }
     }
 
-    private static int partition(int[] arr, int p, int r) {
-        int x = arr[r];
-        int i = p - 1;
-        for (int j = p; j < r; j++) {
-            if (arr[j] <= x) {
+    private static int partition(int[] arr, int p, int r) { //partition helper method
+        int x = arr[r]; //set pivot point
+        int i = p - 1; //highest index on the low side
+        for (int j = p; j < r; j++) { // iterate from the pivot to the end of the array, j is the index being evaluated
+            if (arr[j] <= x) { //if the current element at j is less than the pivot, swap them
                 i++;
                 int tmp = arr[i];
                 arr[i] = arr[j];
