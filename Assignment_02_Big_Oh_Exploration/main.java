@@ -8,19 +8,22 @@ public class main {
         long endTime;
         long duration;
 
-        //create a sample of array integers
+        //create a sample array off random integers
         int n = 100000000;
         int[] largeArray = new int[n];
-        Random rand = new Random();
-        for (int i = 0; i < n; i++) {
-            largeArray[i] = rand.nextInt();
+        Random rand = new Random(); 
+        for (int i = 0; i < n; i++) { 
+            largeArray[i] = rand.nextInt(); //randomly generate values for each element in the sample array
         }
-        int[] insertionSortArray = Arrays.copyOf(largeArray, largeArray.length);
-        int[] heapSortArray = Arrays.copyOf(largeArray, largeArray.length);;
-        int[] quickSortArray = Arrays.copyOf(largeArray, largeArray.length);; //{3, -1, 5, 0, 12, 12, -7, 2, 9, 0};
-        int[] mergeSortArray = Arrays.copyOf(largeArray, largeArray.length);;
+        //{3, -1, 5, 0, 12, 12, -7, 2, 9, 0};
 
-/*
+        //create copies of the randomly generated array for each sorting method for direct runtime comparisons
+        int[] insertionSortArray = Arrays.copyOf(largeArray, largeArray.length);
+        int[] heapSortArray = Arrays.copyOf(largeArray, largeArray.length);
+        int[] quickSortArray = Arrays.copyOf(largeArray, largeArray.length); 
+        int[] mergeSortArray = Arrays.copyOf(largeArray, largeArray.length);
+        
+/*        //Runtime test ffor Insertion Sort
         //System.out.println("Before sorting: " + Arrays.toString(insertionSortArray));
         startTime = System.currentTimeMillis();
         InsertionSort.sort(insertionSortArray);
@@ -29,7 +32,7 @@ public class main {
         //System.out.println("After sorting: " + Arrays.toString(insertionSortArray));
         System.out.println("Insertion sort took: " + duration + "ms");
 
-*/
+*/        //Runtime test for HeapSort
         startTime = System.currentTimeMillis();
         HeapSort.sort(heapSortArray, heapSortArray.length);
         endTime = System.currentTimeMillis();
@@ -37,7 +40,7 @@ public class main {
         System.out.println("Heapsort took: " + duration + "ms");
         System.out.println("Heapsort successfully sorted the whole array: " + isSorted(heapSortArray));
 
-
+        //Runtime test for QuickSort
         startTime = System.currentTimeMillis();
         QuickSort.sort(quickSortArray, 0, quickSortArray.length - 1);
         endTime = System.currentTimeMillis();
@@ -45,6 +48,7 @@ public class main {
         System.out.println("Quicksort took: " + duration + "ms");
         System.out.println("Quicksort successfully sorted the whole array: " + isSorted(quickSortArray));
 
+        //Runtime test for MergeSort
         startTime = System.currentTimeMillis();
         MergeSort.sort(mergeSortArray, 0, mergeSortArray.length - 1);
         endTime = System.currentTimeMillis();
