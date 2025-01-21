@@ -1,41 +1,65 @@
 package Assignment_02_Big_Oh_Exploration;
+
 import java.util.Arrays;
 
+/**
+ * MergeSort provides an implementation of the Merge Sort algorithm.
+ * This class includes methods to recursively sort an integer array and merge sorted subarrays.
+ *
+ * @author  Reid Roberts
+ */
 public class MergeSort {
+
+    /**
+     * sort: recursively sort an input array using the merge sort algorithm
+     *
+     * @param arr the array to be sorted
+     * @param p   the starting index of the subarray to be sorted
+     * @param r   the ending index of the subarray to be sorted
+     */
     public static void sort(int[] arr, int p, int r) {
-        if (p >= r) { //check for edge case of empty or 1-element input array
+        // ACcount for edge case: if subarray is empty or has one element, it is already sorted
+        if (p >= r) {
             return;
         }
-        int q = (p + r) / 2; //compute midpoint of input array
-        sort(arr, p, q); //recursively sort left subarray
-        sort(arr, q + 1, r); //recursively sort right subarray
-        merge(arr, p, q, r); //merge subarrays
+        
+        int q = (p + r) / 2; // compute the midpoint of the subarray
+        sort(arr, p, q); // recursively sort the left subarray
+        sort(arr, q + 1, r); // recursively sort the right subarray
+        merge(arr, p, q, r); // merge the sorted subarrays
     }
 
+    /** 
+     * merge: merges two sorted subarrays into a single sorted subarray
+     * @param arr the original array containing the subarrays
+     * @param p   the starting index of the left subarray
+     * @param q   the ending index of the left subarray (midpoint)
+     * @param r   the ending index of the right subarray
+     */
+    private static void merge(int[] arr, int p, int q, int r) {
+        int nL = q - p + 1; // calculate the length of the left subarray (from index p to q)
+        int nR = r - q; // calculate the length of the right subarray (from index q+1 to r)
 
-    //METHOD TO MERGE SUBARRAYS
-    private static void merge(int[] arr, int p, int q, int r) { //input array, start index p, midpoint q, endpoint r
-        int nL = q - p + 1; //length of left subarray from start to midpoint
-        int nR = r - q; //length of right subarray from q to r
-        
-        int[] L = new int[nL]; //empty subarray of length nL
-        int[] R = new int[nR]; //empty subarray of length nR
-        
-        //Copy left subarray to L from 0 to nL - 1
+        // create temporary arrays for left and right subarrays
+        int[] L = new int[nL]; // left subarray
+        int[] R = new int[nR]; // right subarray
+
+        // copy elements to left subarray
         for (int i = 0; i < nL; i++) {
-            L[i] = arr[p + i]; 
+            L[i] = arr[p + i];
         }
 
-        //Copy right subarray to R from q to r - 1
+        // Copy elements to right subarray
         for (int j = 0; j < nR; j++) {
-            R[j] = arr[q + j + 1]; 
+            R[j] = arr[q + j + 1];
         }
 
-        int i = 0; //starts at index 0 in left subarray
-        int j = 0; //starts at index 0 in right subarray
-        int k = p; //indicates location in the input array to fill
+        // Initial indexes for left subarray (i), right subarray (j), and merged array (k)
+        int i = 0; // current index in L
+        int j = 0; // current index in R
+        int k = p; // current index in arr to be filled
 
-        //Iterate through subarrays simultaneously and compare elements, inserting the lower element into the input array
+        // merge elements from L and R back into arr in sorted order
         while (i < nL && j < nR) {
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
@@ -47,14 +71,15 @@ public class MergeSort {
             k++;
         }
 
-        //Case where left subarray has remaining elements
+        // copy remaining elements of L or R into arr
+        // case where remain
         while (i < nL) {
             arr[k] = L[i];
             i++;
             k++;
         }
 
-        //Case where right subarray has remaining elements
+        // copy any remaining elements of R into arr.
         while (j < nR) {
             arr[k] = R[j];
             j++;

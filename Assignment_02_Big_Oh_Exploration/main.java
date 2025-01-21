@@ -9,7 +9,7 @@ public class main {
         long duration;
 
         //create a sample array off random integers
-        int n = 100000000;
+        int n = 500000;
         int[] largeArray = new int[n];
         Random rand = new Random(); 
         for (int i = 0; i < n; i++) { 
@@ -23,40 +23,25 @@ public class main {
         int[] quickSortArray = Arrays.copyOf(largeArray, largeArray.length); 
         int[] mergeSortArray = Arrays.copyOf(largeArray, largeArray.length);
         
-/*        //Runtime test ffor Insertion Sort
-        //System.out.println("Before sorting: " + Arrays.toString(insertionSortArray));
-        startTime = System.currentTimeMillis();
-        InsertionSort.sort(insertionSortArray);
-        endTime = System.currentTimeMillis();
-        duration = endTime - startTime;
-        //System.out.println("After sorting: " + Arrays.toString(insertionSortArray));
-        System.out.println("Insertion sort took: " + duration + "ms");
 
-*/        //Runtime test for HeapSort
-        startTime = System.currentTimeMillis();
-        HeapSort.sort(heapSortArray, heapSortArray.length);
-        endTime = System.currentTimeMillis();
-        duration = endTime - startTime;
-        System.out.println("Heapsort took: " + duration + "ms");
-        System.out.println("Heapsort successfully sorted the whole array: " + isSorted(heapSortArray));
-
-        //Runtime test for QuickSort
-        startTime = System.currentTimeMillis();
-        QuickSort.sort(quickSortArray, 0, quickSortArray.length - 1);
-        endTime = System.currentTimeMillis();
-        duration = endTime - startTime;
-        System.out.println("Quicksort took: " + duration + "ms");
-        System.out.println("Quicksort successfully sorted the whole array: " + isSorted(quickSortArray));
-
-        //Runtime test for MergeSort
-        startTime = System.currentTimeMillis();
-        MergeSort.sort(mergeSortArray, 0, mergeSortArray.length - 1);
-        endTime = System.currentTimeMillis();
-        duration = endTime - startTime;
-        System.out.println("MergeSort took: " + duration + "ms");
-        System.out.println("MergeSort successfully sorted the whole array: " + isSorted(mergeSortArray));
-        
+        //use measureRuntime method to test each sorting function and output runtime results in console
+        measureRuntime("Insertion sort", insertionSortArray, () -> InsertionSort.sort(insertionSortArray));
+        measureRuntime("Heapsort", heapSortArray, () -> HeapSort.sort(heapSortArray, heapSortArray.length));
+        measureRuntime("Quicksort", quickSortArray, () -> QuickSort.sort(quickSortArray, 0, quickSortArray.length - 1));
+        measureRuntime("Merge sort", mergeSortArray, () -> MergeSort.sort(mergeSortArray, 0, mergeSortArray.length - 1));   
     }
+
+
+    // method to measure runtime and print to console
+    public static void measureRuntime(String label, int[] arr, Runnable sortFunction) {
+        long startTime = System.currentTimeMillis();
+        sortFunction.run();
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        System.out.println(label + " took: " + duration + "ms");
+        System.out.println(label + " successfully sorted the whole array: " + isSorted(arr));
+    }
+
 
     //test case to verify that each sorting function properly sorted its array
     public static boolean isSorted(int[] arr) {
