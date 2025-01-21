@@ -18,28 +18,35 @@ public class main {
      */
     public static void main(String[] args) {
 
-        // create a sample array of random integers
-        int n = 500000;
-        int[] largeArray = new int[n];
-        Random rand = new Random(); 
-        for (int i = 0; i < n; i++) { 
-            largeArray[i] = rand.nextInt(); // randomly generate values for each element in the sample array.
-        }
-        // Example array for testing:
-        // int[] sampleArray = {3, -1, 5, 0, 12, 12, -7, 2, 9, 0};
-
-        // create copies of the randomly generated array for each sorting method
-        // to enable direct runtime comparisons.
-        int[] insertionSortArray = Arrays.copyOf(largeArray, largeArray.length);
-        int[] heapSortArray = Arrays.copyOf(largeArray, largeArray.length);
-        int[] quickSortArray = Arrays.copyOf(largeArray, largeArray.length); 
-        int[] mergeSortArray = Arrays.copyOf(largeArray, largeArray.length);
+        // creating a list of array sizes to test each sorting algorithm
+        int[] arraySizes = {300000, 400000, 500000, 600000, 750000, 900000, 1000000};
         
-        // Measure and print the runtime of each sorting algorithm
-        measureRuntime("Insertion sort", insertionSortArray, () -> InsertionSort.sort(insertionSortArray));
-        measureRuntime("Heapsort", heapSortArray, () -> HeapSort.sort(heapSortArray, heapSortArray.length));
-        measureRuntime("Quicksort", quickSortArray, () -> QuickSort.sort(quickSortArray, 0, quickSortArray.length - 1));
-        measureRuntime("Merge sort", mergeSortArray, () -> MergeSort.sort(mergeSortArray, 0, mergeSortArray.length - 1));   
+        // for-loop creates a new randomized array to test for each array size in the list of array sizes
+        for (int n : arraySizes) { 
+            System.out.println("----- Array size: " + n + " -----");
+
+            // Create a sample array of random integers.
+            int[] largeArray = new int[n];
+            Random rand = new Random();
+            for (int i = 0; i < n; i++) {
+                largeArray[i] = rand.nextInt(); // Randomly generate values
+            }
+
+            // Create copies of the randomly generated array for each sorting method.
+            int[] insertionSortArray = Arrays.copyOf(largeArray, largeArray.length);
+            int[] heapSortArray = Arrays.copyOf(largeArray, largeArray.length);
+            int[] quickSortArray = Arrays.copyOf(largeArray, largeArray.length);
+            int[] mergeSortArray = Arrays.copyOf(largeArray, largeArray.length);
+
+            // Measure and print the runtime for each sorting algorithm.
+            measureRuntime("Insertion sort", insertionSortArray, () -> InsertionSort.sort(insertionSortArray));
+            measureRuntime("Heapsort", heapSortArray, () -> HeapSort.sort(heapSortArray, heapSortArray.length));
+            measureRuntime("Quicksort", quickSortArray, () -> QuickSort.sort(quickSortArray, 0, quickSortArray.length - 1));
+            measureRuntime("Merge sort", mergeSortArray, () -> MergeSort.sort(mergeSortArray, 0, mergeSortArray.length - 1));
+
+            System.out.println(); // Blank line for readability between test cases.
+        }
+
     }
 
     /**
