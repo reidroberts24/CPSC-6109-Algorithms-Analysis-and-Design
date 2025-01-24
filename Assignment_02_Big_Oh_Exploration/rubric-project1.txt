@@ -29,6 +29,6 @@ _____ / 2 Completed rubric (estimates for each line including hours spent)
 _____ /100 Total
 _____ Approximate number of hours spent
 
-I, (REPLACE WITH YOUR FULL NAME), affirm that the code that I submitted is my
+I, Reid Roberts, affirm that the code that I submitted is my
 own work and that I did not receive help that was not authorized by the
 instructor.
