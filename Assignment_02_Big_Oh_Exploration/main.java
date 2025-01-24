@@ -40,9 +40,9 @@ public class main {
 
             // Measure and print the runtime for each sorting algorithm.
             measureRuntime("Insertion sort", insertionSortArray, () -> InsertionSort.sort(insertionSortArray));
-            measureRuntime("Heapsort", heapSortArray, () -> HeapSort.sort(heapSortArray, heapSortArray.length));
-            measureRuntime("Quicksort", quickSortArray, () -> QuickSort.sort(quickSortArray, 0, quickSortArray.length - 1));
-            measureRuntime("Merge sort", mergeSortArray, () -> MergeSort.sort(mergeSortArray, 0, mergeSortArray.length - 1));
+            //measureRuntime("Heapsort", heapSortArray, () -> HeapSort.sort(heapSortArray, heapSortArray.length));
+            //measureRuntime("Quicksort", quickSortArray, () -> QuickSort.sort(quickSortArray, 0, quickSortArray.length - 1));
+            //measureRuntime("Merge sort", mergeSortArray, () -> MergeSort.sort(mergeSortArray, 0, mergeSortArray.length - 1));
 
             System.out.println(); // Blank line for readability between test cases.
         }
@@ -63,7 +63,7 @@ public class main {
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
         System.out.println(label + " took: " + duration + "ms");
-        System.out.println(label + " successfully sorted the whole array: " + isSorted(arr));
+        //System.out.println(label + " successfully sorted the whole array: " + isSorted(arr));
     }
 
     /**
