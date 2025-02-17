@@ -1,3 +1,4 @@
+'''
 def memoized_cut_rod_aux(prices, n, revenue):
     if revenue[n] >= 0:  # If already computed, return stored value
         return revenue[n]
@@ -21,3 +22,5 @@ prices = [1, 5, 7, 10, 11, 18, 18, 21]
 n = 8  # Pipe length
 max_revenue = memoized_cut_rod(prices, n)
 print("Max Revenue (Memoized):", max_revenue)
+'''
+print(909505694 % 3)
