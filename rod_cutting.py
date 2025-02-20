@@ -23,4 +23,16 @@ n = 8  # Pipe length
 max_revenue = memoized_cut_rod(prices, n)
 print("Max Revenue (Memoized):", max_revenue)
 '''
-print(909505694 % 3)
+
+n = 8
+p = [1,5,7,10,11,18,18,21]
+def rod_cut(p, n):
+    res = []
+    for i in range(n):
+        max_val = float("-inf")
+        for j in range(i):
+            max_val = max(max_val, p[j] + rod_cut(p, [i - j]))
+            res.append(max_val)
+    return res
+
+print(rod_cut(p, n))
