@@ -26,13 +26,14 @@ print("Max Revenue (Memoized):", max_revenue)
 
 n = 8
 p = [1,5,7,10,11,18,18,21]
-def rod_cut(p, n):
-    res = []
-    for i in range(n):
+def cut_rod(p, n):
+    res = [0]* (n + 1)
+    if n == 0:
+        return 0
+    for i in range(1, n + 1):
         max_val = float("-inf")
         for j in range(i):
-            max_val = max(max_val, p[j] + rod_cut(p, [i - j]))
-            res.append(max_val)
-    return res
-
-print(rod_cut(p, n))
+            max_val = max(max_val, p[j] + res[i - j - 1])
+        res[i] = max_val
+    return res[1:]
+print(cut_rod(p,n))
