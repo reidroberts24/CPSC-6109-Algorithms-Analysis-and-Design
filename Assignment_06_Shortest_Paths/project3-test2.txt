@@ -1,0 +1,5 @@
+S	A	2
+S	B	4
+B	C	3
+X	Y	5
+X	Z	7

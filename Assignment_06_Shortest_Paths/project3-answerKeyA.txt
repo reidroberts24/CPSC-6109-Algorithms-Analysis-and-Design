@@ -1,0 +1,12 @@
+Please enter the input filename (or simply press return to use ./project3-testA.txt):
+Importing vertices, edges (and their weights) from ./project3-testA.txt . . .
+
+Found 5 vertices and 10 edges in ./project3-testA.txt
+The costs for the shortest path from the first vertex (s):
+
+Vertex	Dist.	Path
+------	-----	----
+t	8	y, s
+y	5	s
+x	9	t, y, s
+z	7	y, s
